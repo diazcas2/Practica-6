@@ -190,6 +190,10 @@ La correlación de Pearson sirve para cuando la relación entre dos variables es
 Para comprobarlo, vamos a aplicar una función no lineal a una de las variables y a calcular la correlación usando los métodos de Pearson y Spearman. Compruébalo entre las variables `sqrt(ALG.num)` y `MD.num`, comparando con los resultados anteriores. 
 
 ```{r Solucion_Ej7 bis, include=TRUE, echo=TRUE, eval=TRUE, results=TRUE}
+sqrt(Datos$ALG.num)
+Datos %>% mutate(raiz.num=sqrt(Datos$ALG.num)) %>% select(ends_with('.num')) %>% cor(use = "complete.obs", method = "pearson")
+
+Datos %>% mutate(raiz.num=sqrt(Datos$ALG.num)) %>% select(ends_with('.num')) %>% cor(use = "complete.obs", method = "spearman")
 
 ```
 
@@ -199,7 +203,7 @@ Dibuja las matrices de correlación del conjunto de notas numéricas.
 Podemos usar `pairs` del paquete base o bien `ggcorr` y `ggpairs` de la librería `GGally`.
 
 ```{r Solucion_Ej8, include=TRUE, echo=TRUE, eval=TRUE, results=TRUE}
-
+ggpairs(Datos %>% select(ends_with('.num')))
 ```
 
 # Análisis bivariante de variables categóricas
