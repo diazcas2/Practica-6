@@ -219,13 +219,13 @@ Nota: usa la función `chisq.test` con el parámetro `correct=FALSE` y analiza s
 
 ```{r Solucion_Ej9, include=TRUE, echo=TRUE, eval=TRUE, results=TRUE}
 chisq.test(Datos$ALG.cat,Datos$ANM.cat,correct=FALSE)
-#Rechazamos que el tipo de calificación es dependiente
+#Rechazamos que el tipo de calificación es independiente
 ```
 
 
 ```{r Solucion_Ej9b, include=TRUE, echo=TRUE, eval=TRUE, results=TRUE}
 chisq.test(Datos$ALG.cat,Datos$Sex,correct=FALSE)
-#Existe suficiente evidencia estadística para aceptar la hipótesis nula, es decir, hay dependencia
+#Existe suficiente evidencia estadística para aceptar la hipótesis nula, es decir, hay independencia
 ```
 
 
